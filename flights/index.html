@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <title>Flights · fly</title>
+  </head>
+  <body>
+    <div class="wrap">
+      <nav class="nav">
+        <a href="../" class="home">fly</a>
+        <a href="../">Airports</a>
+        <a href="../miles/">Miles</a>
+        <a href="./" aria-current="page">Flights</a>
+      </nav>
+      <h1>Flights</h1>
+      <p class="sub" id="status">Checking sign-in…</p>
+
+      <div class="gate" id="signedOut" hidden>
+        <p>Sign in to see flights.</p>
+        <button class="btn primary" type="button" id="signIn">Sign in</button>
+      </div>
+
+      <div id="signedIn" hidden>
+        <p class="account">
+          <span>Signed in as <b id="who"></b></span>
+          <button class="btn" type="button" id="signOut">Sign out</button>
+        </p>
+        <div id="flights"></div>
+      </div>
+    </div>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

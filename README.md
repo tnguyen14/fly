@@ -7,6 +7,8 @@ Flight tools, published with GitHub Pages at
   code (`BOS`), ICAO code (`KBOS`), or part of an airport or city name.
 - [Route miles](https://tridnguyen.com/fly/miles/) (`miles/`): miles between
   airport pairs.
+- [Flights](https://tridnguyen.com/fly/flights/) (`flights/`): for signed-in
+  users only. Empty for now.
 
 Searches are kept in the query string, so a view can be linked:
 `https://tridnguyen.com/fly/?q=BOS`. Shared code (fonts, styles, airport data)
@@ -43,6 +45,22 @@ The page checks each entry when it loads: an entry with a code that isn't in
 `airports.json`, `miles` that isn't a positive whole number, a misspelled
 field, or a pair listed twice is left out of the list and shown at the top of
 the page with what to fix.
+
+## Auth setup
+
+Sign-in uses the "Auth" SPA application in Auth0 (`tridnguyen.auth0.com`),
+with its client ID in `lib/auth.js`. Its settings need:
+
+- Allowed Callback URLs and Allowed Logout URLs: `https://tridnguyen.com/fly/`
+- Allowed Web Origins: `https://tridnguyen.com`
+
+The site root is the callback and logout page for every section: it finishes
+the redirect and sends you back to the page you came from, so new sections
+need no Auth0 changes. For local sign-in, also add `http://localhost:4006/`
+(callback and logout) and `http://localhost:4006` (web origin).
+
+Sign-in only hides content in the browser; the page code is public. Private
+data must come from an API that checks the sign-in token.
 
 ## Development
 

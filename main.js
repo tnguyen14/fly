@@ -8,6 +8,15 @@ import {
   source,
   pulledAt,
 } from "./lib/common.js";
+import { handleAuthRedirect, isAuthRedirect } from "./lib/auth.js";
+
+// This page is also the Auth0 callback and logout URL for every section.
+if (isAuthRedirect()) {
+  document.documentElement.classList.add("auth-redirect");
+  handleAuthRedirect().then((leaving) => {
+    if (!leaving) document.documentElement.classList.remove("auth-redirect");
+  });
+}
 
 const EXAMPLES = ["BOS", "JFK", "LHR", "SGN"];
 const MAX_RESULTS = 60;
