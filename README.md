@@ -32,13 +32,14 @@ npm run pull
 Pairs are hand-written in `miles/miles.json`:
 
 ```json
-[{ "from": "BOS", "to": "SGN", "miles": 8700, "note": "optional" }]
+[{ "from": "BOS", "to": "SGN", "miles": 8700 }]
 ```
 
 `from` and `to` are IATA codes, and a pair counts once in either direction.
-`npm run check` (also run in CI before every build) fails if a code isn't in
-`airports.json`, `miles` isn't a positive whole number, a field name is
-misspelled, or a pair is listed twice.
+The page checks each entry when it loads: an entry with a code that isn't in
+`airports.json`, `miles` that isn't a positive whole number, a misspelled
+field, or a pair listed twice is left out of the list and shown at the top of
+the page with what to fix.
 
 ## Development
 

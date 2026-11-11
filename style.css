@@ -8,6 +8,8 @@
   --board: #14202e;
   --board-fg: #ffd23f;
   --accent: #1f5fa8;
+  --warn: #c2410c;
+  --warn-bg: #fff4ec;
   --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
   color-scheme: light;
@@ -21,6 +23,8 @@
     --line: #26313e;
     --board: #05090e;
     --accent: #7fb2ec;
+    --warn: #fb923c;
+    --warn-bg: #2a1a10;
     color-scheme: dark;
   }
 }
@@ -263,10 +267,28 @@ li.pair {
   font-weight: 700;
   color: var(--fg);
 }
-.note {
-  grid-column: 1 / -1;
-  color: var(--muted);
+.problems {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--warn);
+  border-left-width: 4px;
+  border-radius: 8px;
+  background: var(--warn-bg);
   font-size: 13px;
+}
+.problems ul {
+  margin: 6px 0 0;
+  padding-left: 18px;
+  display: block;
+}
+.problems li {
+  display: list-item;
+  background: none;
+  border: none;
+  padding: 2px 0;
+}
+.problems code {
+  font: 500 12.5px var(--mono);
 }
 li.empty code {
   font: 500 12.5px var(--mono);
