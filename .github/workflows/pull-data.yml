@@ -1,0 +1,35 @@
+name: Pull airport data
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: pull-data
+  cancel-in-progress: false
+
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run pull
+      - id: commit
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: Pull airport data from OurAirports
+          file_pattern: airports.json
+      # Pushes made with GITHUB_TOKEN don't trigger other workflows, so start
+      # the deploy explicitly.
+      - if: steps.commit.outputs.changes_detected == 'true' && github.ref_name == 'main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref main
