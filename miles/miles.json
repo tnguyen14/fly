@@ -1,1 +1,23 @@
-[]
+[
+  { "from": "AMS", "to": "OSL", "miles": 571 },
+  { "from": "BOS", "to": "LGA", "miles": 185 },
+  { "from": "BOS", "to": "JFK", "miles": 187 },
+  { "from": "BOS", "to": "ORD", "miles": 867 },
+  { "from": "BOS", "to": "MSP", "miles": 1124 },
+  { "from": "BOS", "to": "SJU", "miles": 1674 },
+  { "from": "BOS", "to": "SEA", "miles": 2496 },
+  { "from": "BOS", "to": "LAX", "miles": 2611 },
+  { "from": "BOS", "to": "DUB", "miles": 2993 },
+  { "from": "BOS", "to": "AMS", "miles": 3457 },
+  { "from": "JFK", "to": "SJU", "miles": 1597 },
+  { "from": "JFK", "to": "SEA", "miles": 2421 },
+  { "from": "JFK", "to": "BCN", "miles": 3832 },
+  { "from": "LAX", "to": "SYD", "miles": 7487 },
+  { "from": "LAX", "to": "MEL", "miles": 7920 },
+  { "from": "LGA", "to": "YYZ", "miles": 356 },
+  { "from": "LGA", "to": "MKE", "miles": 738 },
+  { "from": "MSP", "to": "HNL", "miles": 3972 },
+  { "from": "SEA", "to": "KOA", "miles": 2692 },
+  { "from": "HND", "to": "TSA", "miles": 1299 },
+  { "from": "TPE", "to": "DAD", "miles": 1063 }
+]
