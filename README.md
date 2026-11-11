@@ -48,9 +48,8 @@ the page with what to fix.
 
 ## Auth setup
 
-The Flights section requires sign-in with Auth0 (`tridnguyen.auth0.com`), using
-the same "Auth" SPA application as the conf site (client ID in `lib/auth.js`).
-Its settings need:
+The Flights section requires sign-in with the "Auth" SPA application in Auth0
+(client ID in `lib/auth.js`). Its settings need:
 
 - Allowed Callback URLs and Allowed Logout URLs: `https://tridnguyen.com/fly/`
 - Allowed Web Origins: `https://tridnguyen.com`
