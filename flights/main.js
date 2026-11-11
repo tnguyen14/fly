@@ -4,7 +4,7 @@ import { initAuth } from "../lib/auth.js";
 // keeps it off the other pages. This page always needs it, so import it here
 // too: the browser then downloads it alongside this page's code instead of
 // waiting for initAuth() to request it.
-import "@auth0/auth0-spa-js";
+import "@tridnguyen/auth/spa";
 
 // Shown only to signed-in users. This hides the section in the browser; any
 // data it shows later must come from an API that checks the sign-in token,
@@ -60,17 +60,12 @@ async function loadToken(auth, fresh = false) {
   } catch (e) {
     console.error("Couldn't get a token", e);
     $("tokenText").value = "";
-    const expired =
+    $info.textContent =
       /login_required|consent_required|missing_refresh_token|invalid_grant/.test(
         `${e.error} ${e.message}`,
-      );
-    if (expired) {
-      $info.innerHTML =
-        'No current token for the sheets API. <button class="btn" type="button" id="signInAgain">Sign in again</button>';
-      $("signInAgain").onclick = () => auth.login();
-    } else {
-      $info.textContent = `Couldn't get a token: ${e.message || e}`;
-    }
+      )
+        ? "Your sign-in expired. Sign out and sign in again to get a token."
+        : `Couldn't get a token: ${e.message || e}`;
   }
 }
 
