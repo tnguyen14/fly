@@ -1,4 +1,5 @@
-import { $, bindQuery, byIata, esc, norm } from "../lib/common.js";
+import { $, bindQuery, esc, norm } from "../lib/common.js";
+import { byIata } from "../lib/airports.js";
 import pairs from "./miles.json";
 import { drawMap } from "./map.js";
 

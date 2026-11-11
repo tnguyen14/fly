@@ -1,5 +1,10 @@
 import { $, esc } from "../lib/common.js";
 import { initAuth } from "../lib/auth.js";
+// lib/auth.js loads the Auth0 SDK only when a page asks for sign-in, which
+// keeps it off the other pages. This page always needs it, so import it here
+// too: the browser then downloads it alongside this page's code instead of
+// waiting for initAuth() to request it.
+import "@tridnguyen/auth/spa";
 
 // Shown only to signed-in users. This hides the section in the browser; any
 // data it shows later must come from an API that checks the sign-in token,

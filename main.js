@@ -1,13 +1,5 @@
-import {
-  $,
-  airports,
-  bindQuery,
-  esc,
-  formatDate,
-  norm,
-  source,
-  pulledAt,
-} from "./lib/common.js";
+import { $, bindQuery, esc, formatDate, norm } from "./lib/common.js";
+import { airports, pulledAt, source } from "./lib/airports.js";
 import { handleAuthRedirect, isAuthRedirect } from "./lib/auth.js";
 
 // This page is also the Auth0 callback and logout URL for every section.
