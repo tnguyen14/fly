@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <title>Map demo · fly</title>
+  </head>
+  <body>
+    <div class="wrap">
+      <nav class="nav">
+        <a href="../" class="home">fly</a>
+        <a href="../">Airports</a>
+        <a href="../miles/">Miles</a>
+      </nav>
+      <h1>Map demo</h1>
+      <p class="sub">
+        The same route miles drawn two ways. Circle area grows with the number
+        of pairs an airport is in; hover a circle or route for details.
+      </p>
+
+      <section class="demo">
+        <h2>D3 world map</h2>
+        <p>
+          Country outlines bundled with the site. No map service, follows light
+          and dark mode, no zoom.
+        </p>
+        <div class="frame">
+          <svg
+            id="d3"
+            role="img"
+            aria-label="World map of route miles pairs"
+          ></svg>
+        </div>
+      </section>
+
+      <section class="demo">
+        <h2>Leaflet + OpenStreetMap</h2>
+        <p>
+          Map tiles from OpenStreetMap. Drag to pan, scroll or pinch to zoom
+          down to street level.
+        </p>
+        <div class="frame"><div id="leaflet"></div></div>
+      </section>
+    </div>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

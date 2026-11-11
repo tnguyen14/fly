@@ -1,0 +1,102 @@
+:root {
+  --water: #e9eef4;
+  --land: #ffffff;
+  --border: #cfd8e3;
+  --arc: #1f5fa8;
+  --dot: #e8590c;
+  --dot-stroke: #ffffff;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --water: #0b1118;
+    --land: #1c2733;
+    --border: #2c3a48;
+    --arc: #7fb2ec;
+    --dot: #ff922b;
+    --dot-stroke: #0e141c;
+  }
+}
+
+.demo {
+  display: grid;
+  gap: 8px;
+  margin-top: 24px;
+}
+.demo h2 {
+  font-size: 16px;
+  margin: 0;
+}
+.demo p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+.frame {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--water);
+}
+
+/* D3 */
+#d3 {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+#d3 .sphere {
+  fill: var(--water);
+}
+#d3 .graticule {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 0.4;
+  opacity: 0.6;
+}
+#d3 .land {
+  fill: var(--land);
+}
+#d3 .borders {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 0.6;
+}
+#d3 .arcs path {
+  fill: none;
+  stroke: var(--arc);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  opacity: 0.85;
+}
+#d3 .arcs path:hover {
+  stroke-width: 3;
+  opacity: 1;
+}
+#d3 .dots circle {
+  fill: var(--dot);
+  fill-opacity: 0.85;
+  stroke: var(--dot-stroke);
+  stroke-width: 1.2;
+}
+#d3 .labels text {
+  font: 700 11px var(--mono);
+  fill: var(--fg);
+  paint-order: stroke;
+  stroke: var(--water);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+
+/* Leaflet: OSM tiles are always light, so these colors don't switch. */
+#leaflet {
+  height: 460px;
+}
+#leaflet .route {
+  stroke: #1f5fa8;
+  stroke-opacity: 0.85;
+}
+#leaflet .airport {
+  fill: #e8590c;
+  fill-opacity: 0.85;
+  stroke: #ffffff;
+}
