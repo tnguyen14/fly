@@ -36,6 +36,9 @@ Pairs are hand-written in `miles/miles.json`:
 ```
 
 `from` and `to` are IATA codes, and a pair counts once in either direction.
+The page draws every pair on a world map (`miles/map.js`: `d3-geo` with
+country outlines from `world-atlas`, bundled with the site, so no map service)
+as great-circle routes. Searching dims the routes that don't match.
 The page checks each entry when it loads: an entry with a code that isn't in
 `airports.json`, `miles` that isn't a positive whole number, a misspelled
 field, or a pair listed twice is left out of the list and shown at the top of

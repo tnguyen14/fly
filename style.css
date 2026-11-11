@@ -9,6 +9,11 @@
   --board-fg: #ffd23f;
   --accent: #1f5fa8;
   --warn: #c2410c;
+  --water: #e9eef4;
+  --land: #ffffff;
+  --border: #cfd8e3;
+  --arc: #1f5fa8;
+  --dot: #e8590c;
   --warn-bg: #fff4ec;
   --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
@@ -24,6 +29,11 @@
     --board: #05090e;
     --accent: #7fb2ec;
     --warn: #fb923c;
+    --water: #0b1118;
+    --land: #1c2733;
+    --border: #2c3a48;
+    --arc: #7fb2ec;
+    --dot: #ff922b;
     --warn-bg: #2a1a10;
     color-scheme: dark;
   }
@@ -267,6 +277,71 @@ li.pair {
   font-size: 20px;
   font-weight: 700;
   color: var(--fg);
+}
+/* Route map */
+.map {
+  margin: 4px 0 6px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--water);
+}
+.map svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+/* Keep line widths in screen pixels at any map size. */
+.map path,
+.map circle {
+  vector-effect: non-scaling-stroke;
+}
+.map .sphere {
+  fill: var(--water);
+}
+.map .graticule {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 0.4;
+  opacity: 0.6;
+}
+.map .land {
+  fill: var(--land);
+}
+.map .borders {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 0.6;
+}
+.map .arcs path {
+  fill: none;
+  stroke: var(--arc);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  opacity: 0.85;
+}
+.map .arcs path:hover {
+  stroke-width: 3;
+  opacity: 1;
+}
+.map .dots circle {
+  fill: var(--dot);
+  stroke: var(--bg);
+  stroke-width: 1.2;
+}
+.map .labels text {
+  font-family: var(--mono);
+  font-weight: 700;
+  fill: var(--fg);
+  paint-order: stroke;
+  stroke: var(--water);
+  stroke-linejoin: round;
+}
+.map .dim {
+  opacity: 0.15;
+}
+.map .arcs path.dim {
+  opacity: 0.12;
 }
 .problems {
   margin-top: 12px;
