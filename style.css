@@ -39,6 +39,9 @@
   }
 }
 
+[hidden] {
+  display: none !important;
+}
 body {
   margin: 0;
   background: var(--bg);
@@ -379,4 +382,54 @@ li.empty code {
     grid-column: 1 / -1;
     padding: 4px 0 0;
   }
+}
+
+/* Hide the root page while it finishes a sign-in or sign-out redirect. */
+html.auth-redirect body {
+  visibility: hidden;
+}
+
+/* Sign-in */
+.account {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  color: var(--muted);
+  font-size: 13px;
+  margin: 0 0 16px;
+}
+.account b {
+  color: var(--fg);
+  font-weight: 600;
+}
+.btn {
+  font: 600 13px var(--sans);
+  padding: 7px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--fg);
+  cursor: pointer;
+}
+.btn.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--surface);
+}
+.btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.gate {
+  display: grid;
+  justify-items: start;
+  gap: 12px;
+  padding: 20px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.gate p {
+  margin: 0;
 }

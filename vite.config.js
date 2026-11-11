@@ -15,6 +15,7 @@ export default defineConfig({
       input: {
         main: page("index.html"),
         miles: page("miles/index.html"),
+        flights: page("flights/index.html"),
       },
     },
   },
