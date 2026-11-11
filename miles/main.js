@@ -1,5 +1,6 @@
 import { $, bindQuery, byIata, esc, norm } from "../lib/common.js";
 import pairs from "./miles.json";
+import { drawMap } from "./map.js";
 
 const $q = $("q");
 const $list = $("list");
@@ -95,9 +96,24 @@ function row(r) {
   </li>`;
 }
 
+// The map shows every valid pair; searching dims the routes that don't match.
+const $map = $("map");
+const highlight = rows.length ? drawMap($map, rows, byIata) : null;
+$map.closest(".map").hidden = !rows.length;
+
 function render() {
   const q = $q.value.trim();
   const results = search(q);
+  // Airports whose own code, name or city matches a search word.
+  const words = norm(q).split(/\s+/).filter(Boolean);
+  const focus = new Set(
+    words.length
+      ? results
+          .flatMap((r) => [r.from, r.to])
+          .filter((c) => words.some((w) => norm(airportText(c)).includes(w)))
+      : [],
+  );
+  highlight?.(results, focus);
   if (!rows.length) {
     $count.textContent = "";
     $list.innerHTML = problems.length
