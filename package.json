@@ -9,7 +9,8 @@
     "format": "prettier --write .",
     "lint": "prettier --check .",
     "prepare": "husky",
-    "pull": "node scripts/pull-data.js"
+    "pull": "node scripts/pull-data.js",
+    "check": "node scripts/check-miles.js"
   },
   "lint-staged": {
     "*": "prettier --ignore-unknown --write"

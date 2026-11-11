@@ -1,11 +1,18 @@
 # fly
 
-Airport code lookup, published with GitHub Pages at
-[tridnguyen.com/fly](https://tridnguyen.com/fly/).
+Flight tools, published with GitHub Pages at
+[tridnguyen.com/fly](https://tridnguyen.com/fly/). Each section is a static
+page under its own sub path:
 
-Search by IATA code (`BOS`), ICAO code (`KBOS`), or part of an airport or city
-name. The search is kept in the query string, so a lookup can be linked:
-`https://tridnguyen.com/fly/?q=BOS`.
+- [Airport codes](https://tridnguyen.com/fly/airports/) (`airports/`): search
+  by IATA code (`BOS`), ICAO code (`KBOS`), or part of an airport or city name.
+- [Route miles](https://tridnguyen.com/fly/miles/) (`miles/`): miles between
+  airport pairs.
+
+Searches are kept in the query string, so a view can be linked:
+`https://tridnguyen.com/fly/airports/?q=BOS`. Old `/fly/?q=` links redirect to
+the airports page. Shared code (fonts, styles, airport data) is in
+`lib/common.js`.
 
 ## Data
 
@@ -21,6 +28,19 @@ workflow). It commits `airports.json` and deploys. Or run it locally:
 ```sh
 npm run pull
 ```
+
+## Route miles
+
+Pairs are hand-written in `miles/miles.json`:
+
+```json
+[{ "from": "BOS", "to": "SGN", "miles": 8700, "note": "optional" }]
+```
+
+`from` and `to` are IATA codes, and a pair counts once in either direction.
+`npm run check` (also run in CI before every build) fails if a code isn't in
+`airports.json`, `miles` isn't a positive whole number, a field name is
+misspelled, or a pair is listed twice.
 
 ## Development
 

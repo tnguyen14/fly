@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <title>Route Miles · fly</title>
+  </head>
+  <body>
+    <div class="wrap">
+      <nav class="nav">
+        <a href="../" class="home">fly</a>
+        <a href="../airports/">Airports</a>
+        <a href="./" aria-current="page">Miles</a>
+      </nav>
+      <h1>Route miles</h1>
+      <p class="sub">
+        Miles between airport pairs. Search by airport code or city; tap a code
+        to look up the airport.
+      </p>
+      <div class="bar">
+        <input
+          id="q"
+          type="search"
+          placeholder="BOS, SGN, Tokyo…"
+          autocomplete="off"
+          spellcheck="false"
+          aria-label="Search airport pairs"
+        />
+      </div>
+      <div class="count" id="count"></div>
+      <ul id="list"></ul>
+    </div>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
