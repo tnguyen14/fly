@@ -7,7 +7,7 @@ import {
   norm,
   source,
   pulledAt,
-} from "../lib/common.js";
+} from "./lib/common.js";
 
 const EXAMPLES = ["BOS", "JFK", "LHR", "SGN"];
 const MAX_RESULTS = 60;

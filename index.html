@@ -6,41 +6,37 @@
       name="viewport"
       content="width=device-width,initial-scale=1,viewport-fit=cover"
     />
-    <title>fly</title>
-    <script>
-      // Links from before the airport lookup moved (/fly/?q=BOS) still work.
-      if (new URLSearchParams(location.search).has("q"))
-        location.replace("./airports/" + location.search);
-    </script>
+    <title>Airport Codes · fly</title>
   </head>
   <body>
     <div class="wrap">
       <nav class="nav">
-        <a href="./" class="home" aria-current="page">fly</a>
+        <a href="./" class="home">fly</a>
+        <a href="./" aria-current="page">Airports</a>
+        <a href="./miles/">Miles</a>
       </nav>
-      <ul class="sections">
-        <li>
-          <a href="./airports/">
-            <span class="code">IATA</span>
-            <span>
-              <span class="name">Airport codes</span>
-              <span class="place"
-                >Look up an airport by IATA or ICAO code, name or city.</span
-              >
-            </span>
-          </a>
-        </li>
-        <li>
-          <a href="./miles/">
-            <span class="code">MI</span>
-            <span>
-              <span class="name">Route miles</span>
-              <span class="place">Miles between airport pairs.</span>
-            </span>
-          </a>
-        </li>
-      </ul>
+      <h1>Airport codes</h1>
+      <p class="sub">
+        Type a 3-letter IATA or 4-letter ICAO code, or part of an airport or
+        city name.
+      </p>
+      <p class="src" id="src"></p>
+      <div class="bar">
+        <input
+          id="q"
+          type="search"
+          placeholder="BOS, KJFK, Heathrow…"
+          autocomplete="off"
+          autocapitalize="characters"
+          spellcheck="false"
+          aria-label="Search airports"
+        />
+        <div class="chips" id="chips"></div>
+      </div>
+      <div class="count" id="count"></div>
+      <ul id="list"></ul>
+      <p class="foot" id="foot"></p>
     </div>
-    <script type="module" src="./index.js"></script>
+    <script type="module" src="./main.js"></script>
   </body>
 </html>

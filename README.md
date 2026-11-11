@@ -1,18 +1,16 @@
 # fly
 
 Flight tools, published with GitHub Pages at
-[tridnguyen.com/fly](https://tridnguyen.com/fly/). Each section is a static
-page under its own sub path:
+[tridnguyen.com/fly](https://tridnguyen.com/fly/):
 
-- [Airport codes](https://tridnguyen.com/fly/airports/) (`airports/`): search
-  by IATA code (`BOS`), ICAO code (`KBOS`), or part of an airport or city name.
+- [Airport codes](https://tridnguyen.com/fly/) (the root page): search by IATA
+  code (`BOS`), ICAO code (`KBOS`), or part of an airport or city name.
 - [Route miles](https://tridnguyen.com/fly/miles/) (`miles/`): miles between
   airport pairs.
 
 Searches are kept in the query string, so a view can be linked:
-`https://tridnguyen.com/fly/airports/?q=BOS`. Old `/fly/?q=` links redirect to
-the airports page. Shared code (fonts, styles, airport data) is in
-`lib/common.js`.
+`https://tridnguyen.com/fly/?q=BOS`. Shared code (fonts, styles, airport data)
+is in `lib/common.js`.
 
 ## Data
 

@@ -28,7 +28,7 @@ function end(code) {
   const a = byIata.get(code);
   const place = a ? [a[3], a[4]].filter(Boolean).join(", ") : "Unknown code";
   return `<div class="end">
-    <a class="code" href="../airports/?q=${esc(code)}" title="${esc(a?.[2] ?? code)}">${esc(code)}</a>
+    <a class="code" href="../?q=${esc(code)}" title="${esc(a?.[2] ?? code)}">${esc(code)}</a>
     <div class="place">${esc(place)}</div>
   </div>`;
 }
