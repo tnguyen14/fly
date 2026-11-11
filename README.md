@@ -1,11 +1,16 @@
 # fly
 
-Airport code lookup, published with GitHub Pages at
-[tridnguyen.com/fly](https://tridnguyen.com/fly/).
+Flight tools, published with GitHub Pages at
+[tridnguyen.com/fly](https://tridnguyen.com/fly/):
 
-Search by IATA code (`BOS`), ICAO code (`KBOS`), or part of an airport or city
-name. The search is kept in the query string, so a lookup can be linked:
-`https://tridnguyen.com/fly/?q=BOS`.
+- [Airport codes](https://tridnguyen.com/fly/) (the root page): search by IATA
+  code (`BOS`), ICAO code (`KBOS`), or part of an airport or city name.
+- [Route miles](https://tridnguyen.com/fly/miles/) (`miles/`): miles between
+  airport pairs.
+
+Searches are kept in the query string, so a view can be linked:
+`https://tridnguyen.com/fly/?q=BOS`. Shared code (fonts, styles, airport data)
+is in `lib/common.js`.
 
 ## Data
 
@@ -21,6 +26,20 @@ workflow). It commits `airports.json` and deploys. Or run it locally:
 ```sh
 npm run pull
 ```
+
+## Route miles
+
+Pairs are hand-written in `miles/miles.json`:
+
+```json
+[{ "from": "BOS", "to": "SGN", "miles": 8700 }]
+```
+
+`from` and `to` are IATA codes, and a pair counts once in either direction.
+The page checks each entry when it loads: an entry with a code that isn't in
+`airports.json`, `miles` that isn't a positive whole number, a misspelled
+field, or a pair listed twice is left out of the list and shown at the top of
+the page with what to fix.
 
 ## Development
 

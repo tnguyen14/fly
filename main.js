@@ -1,38 +1,26 @@
-import "@fontsource/inter/400.css";
-import "@fontsource/inter/600.css";
-import "@fontsource/jetbrains-mono/500.css";
-import "@fontsource/jetbrains-mono/700.css";
-import "./style.css";
-import data from "./airports.json";
+import {
+  $,
+  airports,
+  bindQuery,
+  esc,
+  formatDate,
+  norm,
+  source,
+  pulledAt,
+} from "./lib/common.js";
 
-// [iata, icao, name, city, country, type, lat, lon]
-const airports = data.airports;
 const EXAMPLES = ["BOS", "JFK", "LHR", "SGN"];
 const MAX_RESULTS = 60;
 
-const $ = (id) => document.getElementById(id);
 const $q = $("q");
 const $list = $("list");
 const $count = $("count");
-
-const norm = (s) => s.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase();
 const index = airports.map((a) => norm(`${a[2]} ${a[3]} ${a[4]}`));
-const esc = (s) =>
-  String(s).replace(
-    /[&<>"]/g,
-    (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c],
-  );
 
-const pulled = new Date(data.pulledAt).toLocaleDateString("en-US", {
-  timeZone: "America/New_York",
-  month: "short",
-  day: "numeric",
-  year: "numeric",
-});
 $("src").innerHTML =
-  `Data pulled <b>${pulled}</b> from ` +
+  `Data pulled <b>${formatDate(pulledAt)}</b> from ` +
   `<a href="https://ourairports.com/data/">OurAirports</a> · ` +
-  `<a href="${esc(data.source)}">airports.csv</a>`;
+  `<a href="${esc(source)}">airports.csv</a>`;
 $("foot").textContent =
   `${airports.length.toLocaleString()} airports with an IATA code and ` +
   `scheduled airline service, heliports excluded. OurAirports is ` +
@@ -88,20 +76,7 @@ function render() {
     : `<li class="empty">No airport matches “${esc(q)}”. Check the code, or try part of the city name.</li>`;
 }
 
-// The search lives in the query string (?q=BOS) so lookups can be linked.
-function syncUrl() {
-  const url = new URL(location.href);
-  const q = $q.value.trim();
-  if (q) url.searchParams.set("q", q);
-  else url.searchParams.delete("q");
-  history.replaceState(null, "", url);
-}
-
-$q.value = new URLSearchParams(location.search).get("q") ?? "";
-$q.addEventListener("input", () => {
-  render();
-  syncUrl();
-});
+bindQuery($q, render);
 
 const $chips = $("chips");
 $chips.innerHTML = ["BOS", "KLAX", "EGLL", "Tokyo", "Hanoi"]
@@ -110,8 +85,7 @@ $chips.innerHTML = ["BOS", "KLAX", "EGLL", "Tokyo", "Hanoi"]
 $chips.addEventListener("click", (e) => {
   if (!e.target.matches(".chip")) return;
   $q.value = e.target.textContent;
-  render();
-  syncUrl();
+  $q.dispatchEvent(new Event("input"));
 });
 
 render();
