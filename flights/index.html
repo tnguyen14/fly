@@ -11,7 +11,7 @@
   <body>
     <div class="wrap">
       <nav class="nav">
-        <a href="../" class="home">fly</a>
+        <a href="../" class="home" aria-label="fly home">✈️</a>
         <a href="../">Airports</a>
         <a href="../miles/">Miles</a>
         <a href="./" aria-current="page">Flights</a>
@@ -29,6 +29,31 @@
           <span>Signed in as <b id="who"></b></span>
           <button class="btn" type="button" id="signOut">Sign out</button>
         </p>
+        <section class="token" id="token">
+          <div class="token-head">
+            <h2>API token</h2>
+            <div class="token-actions">
+              <button class="btn" type="button" id="copyToken" disabled>
+                Copy
+              </button>
+              <button class="btn" type="button" id="newToken">
+                Get new token
+              </button>
+            </div>
+          </div>
+          <p class="token-note" id="tokenInfo">Getting token…</p>
+          <textarea
+            id="tokenText"
+            readonly
+            rows="5"
+            spellcheck="false"
+            aria-label="Access token"
+          ></textarea>
+          <p class="token-note">
+            Send it as <code>Authorization: Bearer &lt;token&gt;</code>. Anyone
+            with it can read the spreadsheets you can, until it expires.
+          </p>
+        </section>
         <div id="flights"></div>
       </div>
     </div>
