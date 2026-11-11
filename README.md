@@ -49,7 +49,10 @@ the page with what to fix.
 ## Auth setup
 
 Sign-in uses the "Auth" SPA application in Auth0 (`tridnguyen.auth0.com`),
-with its client ID in `lib/auth.js`. Its settings need:
+with its client ID in `lib/auth.js`. It requests access tokens for the sheets
+API (audience `https://sheets.cloud.tridnguyen.com`, with the `email` scope it
+needs to check spreadsheet access). The Flights page shows the current token,
+for trying out API calls. Its settings need:
 
 - Allowed Callback URLs and Allowed Logout URLs: `https://tridnguyen.com/fly/`
 - Allowed Web Origins: `https://tridnguyen.com`

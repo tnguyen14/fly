@@ -225,10 +225,10 @@ li.empty {
   font-weight: 600;
 }
 .nav .home {
-  font: 700 15px var(--mono);
-  letter-spacing: 0.06em;
-  color: var(--fg);
-  margin-right: 6px;
+  font-size: 20px;
+  line-height: 1;
+  margin-right: 4px;
+  text-decoration: none;
 }
 .nav a:hover {
   color: var(--accent);
@@ -432,4 +432,58 @@ html.auth-redirect body {
 }
 .gate p {
   margin: 0;
+}
+
+/* API token */
+.token {
+  display: grid;
+  gap: 8px;
+  padding: 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.token-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.token h2 {
+  font-size: 15px;
+  margin: 0;
+}
+.token-actions {
+  display: flex;
+  gap: 8px;
+}
+.token textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font: 500 12px/1.5 var(--mono);
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--fg);
+  resize: vertical;
+  word-break: break-all;
+}
+.token-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12.5px;
+}
+.token-note b {
+  color: var(--fg);
+  font-weight: 600;
+}
+.token code {
+  font: 500 12px var(--mono);
+  color: var(--fg);
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: default;
 }
