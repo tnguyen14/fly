@@ -72,20 +72,25 @@ function search(raw) {
   return rows.filter((r) => words.every((w) => r.text.includes(w)));
 }
 
-function end(code) {
-  const a = byIata.get(code);
-  const place = [a[3], a[4]].filter(Boolean).join(", ");
-  return `<div class="end">
-    <a class="code" href="../?q=${esc(code)}" title="${esc(a[2])}">${esc(code)}</a>
-    <div class="place">${esc(place)}</div>
-  </div>`;
+function code(iata) {
+  const a = byIata.get(iata);
+  return `<a class="code" href="../?q=${esc(iata)}" title="${esc(a[2])}">${esc(iata)}</a>`;
 }
 
+function place(iata) {
+  const a = byIata.get(iata);
+  const text = [a[3], a[4]].filter(Boolean).join(", ");
+  return `<span title="${esc(a[2])}">${esc(text)}</span>`;
+}
+
+// Every row uses the same fixed columns (code, arrow, code, cities, miles) so
+// codes and miles line up down the list.
 function row(r) {
   return `<li class="pair">
-    ${end(r.from)}
-    <div class="arrow" aria-label="to">⇄</div>
-    ${end(r.to)}
+    ${code(r.from)}
+    <span class="arrow" aria-label="to">⇄</span>
+    ${code(r.to)}
+    <div class="places">${place(r.from)}${place(r.to)}</div>
     <div class="miles"><b>${r.miles.toLocaleString()}</b> mi</div>
   </li>`;
 }
