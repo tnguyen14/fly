@@ -1,4 +1,4 @@
-{"pulledAt":"2026-11-10T17:08:38.000Z","source":"https://davidmegginson.github.io/ourairports-data/airports.csv","fields":["iata","icao","name","city","country","type","lat","lon"],"airports":[["AAA","NTGA","Anaa Airport","Anaa","French Polynesia","medium",-17.3526,-145.51],
+{"pulledAt":"2026-11-11T18:34:29.236Z","source":"https://davidmegginson.github.io/ourairports-data/airports.csv","fields":["iata","icao","name","city","country","type","lat","lon"],"airports":[["AAA","NTGA","Anaa Airport","Anaa","French Polynesia","medium",-17.3526,-145.51],
 ["AAC","HEAR","El Arish International Airport","El Arish","Egypt","large",31.0553,33.828],
 ["AAE","DABB","Annaba Rabah Bitat Airport","Annaba","Algeria","large",36.8268,7.8133],
 ["AAK","NGUK","Aranuka Airport","Buariki","Kiribati","small",0.1853,173.637],
