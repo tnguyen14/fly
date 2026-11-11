@@ -48,8 +48,8 @@ the page with what to fix.
 
 ## Auth setup
 
-The Flights section requires sign-in with the "Auth" SPA application in Auth0
-(client ID in `lib/auth.js`). Its settings need:
+Sign-in uses the "Auth" SPA application in Auth0 (`tridnguyen.auth0.com`),
+with its client ID in `lib/auth.js`. Its settings need:
 
 - Allowed Callback URLs and Allowed Logout URLs: `https://tridnguyen.com/fly/`
 - Allowed Web Origins: `https://tridnguyen.com`
@@ -59,8 +59,8 @@ the redirect and sends you back to the page you came from, so new sections
 need no Auth0 changes. For local sign-in, also add `http://localhost:4006/`
 (callback and logout) and `http://localhost:4006` (web origin).
 
-Sign-in only hides the section in the browser; the page code is public. Any
-flight data it shows must come from an API that checks the sign-in token.
+Sign-in only hides content in the browser; the page code is public. Private
+data must come from an API that checks the sign-in token.
 
 ## Development
 
